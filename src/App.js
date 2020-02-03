@@ -3,7 +3,7 @@ import './App.css';
 import 'bulma/css/bulma.css';
 import NavBar from './component/navbar/navBar';
 import HomePage from './component/homepage/homePage';
-import Create from './component/create/form';
+import Create from './component/createForm/createForm';
 
 function App() {
   return (
