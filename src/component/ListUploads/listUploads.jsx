@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
+import Upload from "../Upload/upload";
 
 const ListUploads = ({
   setUpload,
   filterUploads,
   setFilterUploads,
 }) => {
+
 
   useEffect(() => {
       async function fetchData() {
@@ -19,6 +21,7 @@ const ListUploads = ({
     fetchData();
   }, [setUpload,setFilterUploads]);
 
+ 
   return (
     <tbody>
       {filterUploads.map(listUpload => {

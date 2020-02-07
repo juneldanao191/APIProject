@@ -42,7 +42,7 @@ const NavBar = () => {
 
       <div id="navbarBasicExample" className="navbar-menu">
         <div className="navbar-start">
-          <div className="navbar-item">
+          <div className="navbar-item ">
             <div className="field is-grouped">
               <p className="control">
                 <button className="button is-light" onClick={handleClickHome}>
