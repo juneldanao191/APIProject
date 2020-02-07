@@ -11,35 +11,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-td {
-  font-size: 12px;
-  text-align: center;
+
+.navbar {
+  box-shadow: 5px -3px 5px 5px black;
+}
+.container {
+  padding: 9rem 1rem;
+}
+.table-container {
+  padding: 3rem 1rem;
 }
 
-thead {
-  font-size: 12px;
-  text-align: center;
-  color: red;
-}
-
-title {
-  margin: 12%;
-  padding: 1rem 1rem;
+.header-title {
+  font-size: 60px;
   font-weight: bold;
 }
 
-.user {
-  padding: 4rem 1rem;
+.title {
+  left: -45%;
+  position: relative;
 }
 
-.table-row {
-  text-align: center;
-}
-.profilr-header {
-  padding: 172px 0 0;
-    background: red;
-}
-
-.card {
-  padding: 1rem 5rem;
+td {
+  font-size: 13px;
+  padding: 1rem;
 }

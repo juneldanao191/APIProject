@@ -1,19 +1,22 @@
-import React from 'react';
-import './App.css';
-import 'bulma/css/bulma.css';
-import NavBar from './component/navbar/navBar';
-import HomePage from './component/homepage/homePage';
-import Create from './component/createForm/createForm';
+import React from "react";
+import "./App.css";
+import NavBar from "./component/navbar/navBar";
+import Upload from "./component/Upload/upload";
+import HomePage from "./component/Homepage/homepage";
+import { Switch, Route, BrowserRouter as Router, Link } from "react-router-dom";
 
 function App() {
   return (
-
-    
     <div className="App">
-     <NavBar />
-     <HomePage />
-     <Create />
+    <Router > 
+      <NavBar />
+      <Switch>
+          <Route exact path="/" component={HomePage}></Route>
+          <Route exact path="/upload" component={Upload}></Route>
+      </Switch>
+    </Router>
     </div>
+
   );
 }
 
