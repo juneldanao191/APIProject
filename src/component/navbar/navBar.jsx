@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useHistory, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const NavBar = () => {
   const history = useHistory();
@@ -19,14 +19,15 @@ const NavBar = () => {
       aria-label="main navigation"
     >
       <div className="navbar-brand">
-        <a className="navbar-item">
+        <div className="navbar-item">
           <img
             src="https://i.ibb.co/kGTQPYF/mixcloud-logo.png "
             width="130"
             height="30"
+            alt="logo"
           />
-        </a>
-        <a
+        </div>
+        <div
           role="button"
           className="navbar-burger burger"
           aria-label="menu"
@@ -36,53 +37,51 @@ const NavBar = () => {
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
-        </a>
+        </div>
       </div>
 
       <div id="navbarBasicExample" className="navbar-menu">
         <div className="navbar-start">
-          <div className="nav-item">
-            <div className="navbar-item ">
-              <div class="control-radius has-icons-left has-icons-right">
-                <div className="button is-link" onClick={handleClickHome}>
-                  <span class="icon is-small is-left">
-                    <i class="fas fa-home fa-xs"></i>
+          <div className="navbar-item">
+            <div className="field is-grouped">
+              <p className="control">
+                <button className="button is-light" onClick={handleClickHome}>
+                  <span className="icon">
+                    <i className="fas fa-home" aria-hidden="true"></i>
                   </span>
-                </div>
-              </div>
+                  <span>HOME</span>
+                </button>
+              </p>
+              <p className="control">
+                <button
+                  className="button is-link is-rounded"
+                  onClick={handleClickUpload}
+                >
+                  <span className="icon">
+                    <i className="fas fa-cloud-upload-alt"></i>
+                  </span>
+                  <span>UPLOADS</span>
+                </button>
+              </p>
             </div>
           </div>
-          <a className="navbar-item"></a>
         </div>
       </div>
 
       <div className="navbar-end">
         <div className="navbar-item">
-          <div class="field is-grouped">
-            <p class="control is-expanded has-icons-left has-icons-right">
+          <div className="field">
+            <div className="control has-icons-left has-icons-right">
               <input
-                class="input"
+                className="input is-rounded"
                 type="text"
                 placeholder="Search ..."
               />
-               <span class="icon is-small is-left">
-              <i class="fas fa-search"></i>
-            </span>
-            </p>
-            <p class="control ">
-              <a class="button is-link">Search</a>
-            </p>
-           
-          <div className="buttons">
-            <a
-              className="button is-rounded is-link "
-              onClick={handleClickUpload}
-            >
-              Uploads
-            </a>
+              <span className="icon is-small is-left">
+                <i className="fas fa-search"></i>
+              </span>
+            </div>
           </div>
-          </div>
-
         </div>
       </div>
     </nav>

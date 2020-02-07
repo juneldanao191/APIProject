@@ -1,6 +1,5 @@
 import React from "react";
 import "bulma/css/bulma.css";
-import NavBar from "../navbar/navBar";
 
 const HomePage = () => {
   return (
@@ -21,23 +20,24 @@ const HomePage = () => {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
           assumenda eveniet veritatis aliquam rem doloribus accusamus eum
           quibusdam recusandae laudantium. Veniam, explicabo numquam quidem
-          fugit maxime voluptatem a rem eaque.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus assumenda reiciendis aliquam suscipit?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-          assumenda eveniet veritatis aliquam rem doloribus accusamus eum
+          fugit maxime voluptatem a rem eaque. Lorem ipsum dolor sit amet
+          consectetur adipisicing elit. Doloribus assumenda reiciendis aliquam
+          suscipit? Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Iusto assumenda eveniet veritatis aliquam rem doloribus accusamus eum
           quibusdam recusandae laudantium. Veniam, explicabo numquam quidem
-          fugit maxime voluptatem a rem eaque.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus assumenda reiciendis aliquam suscipit?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-          assumenda eveniet veritatis aliquam rem doloribus accusamus eum
+          fugit maxime voluptatem a rem eaque. Lorem ipsum dolor sit amet
+          consectetur adipisicing elit. Doloribus assumenda reiciendis aliquam
+          suscipit? Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Iusto assumenda eveniet veritatis aliquam rem doloribus accusamus eum
           quibusdam recusandae laudantium. Veniam, explicabo numquam quidem
-          fugit maxime voluptatem a rem eaque.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus assumenda reiciendis aliquam suscipit?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-          assumenda eveniet veritatis aliquam rem doloribus accusamus eum
+          fugit maxime voluptatem a rem eaque. Lorem ipsum dolor sit amet
+          consectetur adipisicing elit. Doloribus assumenda reiciendis aliquam
+          suscipit? Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Iusto assumenda eveniet veritatis aliquam rem doloribus accusamus eum
           quibusdam recusandae laudantium. Veniam, explicabo numquam quidem
-          fugit maxime voluptatem a rem eaque.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus assumenda reiciendis aliquam suscipit?
+          fugit maxime voluptatem a rem eaque. Lorem ipsum dolor sit amet
+          consectetur adipisicing elit. Doloribus assumenda reiciendis aliquam
+          suscipit?
         </p>
       </div>
     </div>

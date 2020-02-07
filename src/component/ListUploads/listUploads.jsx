@@ -1,34 +1,53 @@
-import React, {useState, useEffect} from 'react';
+import React, { useEffect } from "react";
 
-const ListUploads = ({uploads, setUpload, filterUploads, setFilterUploads}) => {
+const ListUploads = ({
+  setUpload,
+  filterUploads,
+  setFilterUploads,
+}) => {
 
-    
-    useEffect(async () => {
+  useEffect(() => {
+      async function fetchData() {
         const response = await fetch(
-          "https://api.mixcloud.com/junel-danao/cloudcasts/"
-        );
-        const fetchData = await response.json();
-        setUpload(fetchData.data);
-        setFilterUploads(fetchData.data);
-        console.log(fetchData.data);
-      }, []);
-
-    return(
-        <tbody>
-        {filterUploads.map(listUpload => {
-          return (
-            <tr>
-              <td>{listUpload.name}</td>
-              <td>{listUpload.url}</td>
-              <td>{listUpload.audio_length}</td>
-              <td>{listUpload.created_time}</td>
-              <td>{listUpload.key}</td>
-              <td>{listUpload.slug}</td>
-            </tr>
+            "https://api.mixcloud.com/junel-danao/cloudcasts/ " 
           );
-        })}
-      </tbody>
-    )
+          const fetchData = await response.json();
+          setUpload(fetchData.data);
+          setFilterUploads(fetchData.data);
+          console.log(fetchData.data);
+      }
+    fetchData();
+  }, [setUpload,setFilterUploads]);
 
-}
-export default  ListUploads;
+  return (
+    <tbody>
+      {filterUploads.map(listUpload => {
+        return (
+          <tr key={listUpload.key}>
+            <td>{listUpload.name}</td>
+            <td>{listUpload.url}</td>
+            <td>{listUpload.audio_length}</td>
+            <td>{listUpload.created_time}</td>
+            <td>{listUpload.key}</td>
+            <td>{listUpload.slug}</td>
+            <td>
+              <button className="button is-light " >
+                <span className="icon">
+                  <i className="fas fa-trash-alt" aria-hidden="true"></i>
+                </span>
+
+              
+              </button>
+              <button className="button is-light">
+                <span className="icon">
+                  <i className="fas fa-edit" aria-hidden="true"></i>
+                </span>
+              </button>
+            </td>
+          </tr>
+        );
+      })}
+    </tbody>
+  );
+};
+export default ListUploads;
