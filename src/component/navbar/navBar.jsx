@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom";
 
 const NavBar = () => {
   const history = useHistory();
-  console.log(history);
 
   const handleClickHome = () => {
     history.push("/");
@@ -11,7 +10,6 @@ const NavBar = () => {
   const handleClickUpload = () => {
     history.push("/upload");
   };
-  console.log(history);
   return (
     <nav
       className="navbar is-fixed-top"
@@ -70,7 +68,7 @@ const NavBar = () => {
 
       <div className="navbar-end">
         <div className="navbar-item">
-          <div className="field">
+          {/* <div className="field">
             <div className="control has-icons-left has-icons-right">
               <input
                 className="input is-rounded"
@@ -81,7 +79,7 @@ const NavBar = () => {
                 <i className="fas fa-search"></i>
               </span>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </nav>

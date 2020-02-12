@@ -4,9 +4,10 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="content has-text-centered">
+        <span></span>
         <p>
-          <strong>Made with ❤️ </strong> by{" "}
-          <a href="https://facebook.com/jhonez.danao" target="_blank">
+          <strong>Made with <span>❤️</span> </strong> by{" "}
+          <a href="https://facebook.com/jhonez.danao" target="_blank" rel="noopener noreferrer">
             Junel C. Danao
           </a>
         </p>

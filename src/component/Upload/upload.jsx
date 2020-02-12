@@ -1,11 +1,13 @@
 import React, { useState} from "react";
 import "bulma/css/bulma.css";
 import ListUploads from "../ListUploads/listUploads";
+import { fetchUploads } from "../redux/action/uploadActions";
 
 const Upload = () => {
   const [uploads, setUpload] = useState([]);
   const [filterUploads, setFilterUploads] = useState([]);
   const [inputValue, setInputValue] = useState("");
+  
 
  
   const handleChangeUploads = e => {
@@ -57,6 +59,7 @@ const Upload = () => {
             setUpload={setUpload}
             filterUploads={filterUploads}
             setFilterUploads={setFilterUploads}
+            fetchUploads={fetchUploads}
           />
         </table>
       </div>
