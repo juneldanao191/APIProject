@@ -8,7 +8,7 @@ const NavBar = () => {
     history.push("/");
   };
   const handleClickUpload = () => {
-    history.push("/upload");
+    history.push("/user");
   };
   return (
     <nav
@@ -56,9 +56,9 @@ const NavBar = () => {
                   onClick={handleClickUpload}
                 >
                   <span className="icon">
-                    <i className="fas fa-cloud-upload-alt"></i>
+                    <i className="fas fa-users"></i>
                   </span>
-                  <span>UPLOADS</span>
+                  <span>USERS</span>
                 </button>
               </p>
             </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import NavBar from "./component/navbar/navBar";
-import Upload from "./component/Upload/upload";
+import Users from "./component/Users/users";
 import HomePage from "./component/Homepage/homepage";
 import Footer from './component/Footer/footer';
 import { Switch, Route, BrowserRouter as Router} from "react-router-dom";
@@ -9,12 +9,12 @@ import { Switch, Route, BrowserRouter as Router} from "react-router-dom";
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import uploadReducer from './component/redux/reducers/uploadRecuder';
+import userReducer from './component/redux/reducer/userReducer';
 
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 
-const store = createStoreWithMiddleware(uploadReducer);
+const store = createStoreWithMiddleware(userReducer);
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
       <NavBar />
       <Switch>
           <Route exact path="/" component={HomePage}></Route>
-          <Route exact path="/upload" component={Upload}></Route>
+          <Route exact path="/user" component={Users}></Route>
       </Switch>
     </Router>
     <Footer />
