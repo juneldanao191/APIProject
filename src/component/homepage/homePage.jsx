@@ -3,10 +3,10 @@ import React from "react";
 const HomePage = () => {
   return (
     <div className="container is-widescreen">
-      <div className="header-title">
+      <div className="header-title has-text-centered">
         <h1>Welcome to MixCLoud</h1>
       </div>
-      <div className="image-container">
+      <div className="image-container has-text-centered">
         <img
           src="https://i.ibb.co/yPFkXJy/mixcloud-dribble.jpg"
           alt="background"

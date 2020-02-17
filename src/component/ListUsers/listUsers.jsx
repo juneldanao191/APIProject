@@ -3,17 +3,39 @@ import React, { useEffect, useState } from "react";
 import { fetchUsers } from "../redux/action/userActions";
 import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
+import UserForm from "../UserForm/userForm";
 
 const UserLists = ({ fetchUsers, userData }) => {
-  const [users, setUsers] = useState([]);
+  const [editUser, setEditUser] = useState({
+    id: "",
+    name: "",
+    username: "",
+    age: "",
+    address: ""
+  });
+  const [isOpenModal, setIsOpenModal] = useState(false);
 
   useEffect(() => {
     fetchUsers();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleDeleteUpload = id => {
-    console.log("deleted");
-    setUsers(users.filter(user => user.id !== id));
+  const handleDeleteUser = async id => {
+    try {
+      const response = await fetch("http://localhost:3000/users/" + id, {
+        method: "DELETE"
+      });
+      console.log(response);
+      fetchUsers();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleEditUser = (id, name, username, age, address) => {
+    console.log(editUser);
+    setEditUser({ id, name, username, age, address });
+    setIsOpenModal(true);
   };
 
   UserLists.propTypes = {
@@ -21,8 +43,8 @@ const UserLists = ({ fetchUsers, userData }) => {
   };
 
   return userData.isLoading ? (
-    <h1>Loading</h1> ) 
-    : (
+    <h1>Loading</h1>
+  ) : (
     <tbody>
       {userData.map(user => {
         return (
@@ -30,33 +52,44 @@ const UserLists = ({ fetchUsers, userData }) => {
             <td>{user.id}</td>
             <td>{user.name}</td>
             <td>{user.username}</td>
-            <td>{user.email}</td>
-            <td>
-              {user.address.city},<br />
-              {user.address.street}, {user.address.zipcode}
-            </td>
-            <td>{user.phone}</td>
-            <td>{user.website}</td>
-            <td>{user.company.name}</td>
+            <td>{user.age}</td>
+            <td>{user.address}</td>
 
-            <td>
+            <td className="is-flex">
               <button
                 className="button is-light "
-                onClick={() => handleDeleteUpload(user.id)}
+                onClick={() => handleDeleteUser(user.id)}
               >
                 <span className="icon">
                   <i className="fas fa-trash-alt" aria-hidden="true"></i>
                 </span>
               </button>
-              {/* <button className="button is-light">
-            <span className="icon">
-              <i className="fas fa-edit" aria-hidden="true"></i>
-            </span>
-          </button> */}
+              <button
+                className="button is-light"
+                onClick={() =>
+                  handleEditUser(
+                    user.id,
+                    user.name,
+                    user.username,
+                    user.age,
+                    user.address
+                  )
+                }
+              >
+                <span className="icon">
+                  <i className="fas fa-edit" aria-hidden="true"></i>
+                </span>
+              </button>
             </td>
           </tr>
         );
       })}
+      <UserForm
+        editUser={editUser}
+        setEditUser={setEditUser}
+        isOpenModal={isOpenModal}
+        setIsOpenModal={setIsOpenModal}
+      />
     </tbody>
   );
 };

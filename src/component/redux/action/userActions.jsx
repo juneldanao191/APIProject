@@ -24,10 +24,11 @@ export const fetchUsers = () => {
     return async function (dispatch){
         dispatch(fetchingUserRequest());
         try {
-            const response = await fetch('https://jsonplaceholder.typicode.com/users/?_limit=50');
+            const response = await fetch('http://localhost:3000/users');
             const fetchData = await response.json();
             dispatch(fetchingUserSuccess(fetchData));
             console.log(fetchData)
+            
         } catch(error) {
             dispatch(fetchingUserFailure(error))
         }

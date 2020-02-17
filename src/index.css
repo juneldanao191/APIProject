@@ -16,7 +16,7 @@ code {
   box-shadow: 5px -3px 5px 5px black;
 }
 .container {
-  padding: 9rem 1rem;
+  padding: 5rem 1rem;
 }
 .table-container {
   padding: 3rem 1rem;
@@ -35,4 +35,17 @@ code {
 td {
   font-size: 13px;
   padding: 1rem;
+}
+.modal-card-head {
+  text-align: center;
+  background-color: darkcyan !important;
+}
+.modal-card-foot {
+  background: darkcyan !important;
+}
+.modal-card {
+  width: 50% !important;
+}
+.table-row {
+  text-align: center;
 }
