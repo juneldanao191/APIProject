@@ -6,23 +6,14 @@ import AddUserModal from "../Modal/addUserModal";
 import { connect } from "react-redux";
 
 
-const User = () => {
-  const [users, setUsers] = useState([]);
-  const [filterUsers, setFilterUsers] = useState([]);
-  const [inputValue, setInputValue] = useState("");
+const User = ({fetchUsers,userData}) => {
+  // const [users, setUsers] = useState([]);
+  // const [filterUsers, setFilterUsers] = useState([]);
+  const [inputValue, setInputValue] = useState("");  
 
   const handleChangeUser = e => {
     setInputValue(e.target.value);
-    console.log(e.target.value);
-    if (e.target.value) {
-      const filtered = users.filter(user =>
-        user.id.toLowerCase().includes(e.target.value.toLowerCase())
-      );
-      console.log(filtered);
-      setFilterUsers(filtered);
-    } else {
-      setFilterUsers(users);
-    }
+    fetchUsers(e.target.value);
   };
 
   return (
@@ -47,20 +38,20 @@ const User = () => {
       </div>
       <table className="table is-bordered is-fullwidth is-striped is-hoverable">
         <thead>
-          <tr className="table-row is-selected is-striped">
+          <tr className="table-row-hover-background-color is-selected ">
             <th className="id has-text-centered	">ID</th>
             <th className="name has-text-centered	">Name</th>
             <th className="username has-text-centered	">User Name</th>
-            <th className="email has-text-centered	">Age</th>
+            <th className="email has-text-centered	">Email</th>
             <th className="address has-text-centered	">Address</th>
-            <th className="action has-text-centered" style={{width: "15%"}}>Action</th>
+            <th className="action is-flex has-centered" style={{justifyContent:"center"}}>Action</th>
           </tr>
         </thead>
         <UserLists
-          users={users}
-          setUsers={setUsers}
-          filterUsers={filterUsers}
-          setFilterUsers={setFilterUsers}
+          // users={users}
+          // setUsers={setUsers}
+          // filterUsers={filterUsers}
+          // setFilterUsers={setFilterUsers}
           fetchUsers={fetchUsers}
         />
       </table>
@@ -76,7 +67,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchUsers: () => dispatch(fetchUsers())
+    fetchUsers: (search) => dispatch(fetchUsers(search))
   };
 };
 

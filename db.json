@@ -1,45 +1,32 @@
 {
   "users": [
     {
-      "id": "4",
-      "name": "Jamess",
-      "username": "kobe1",
-      "age": "33",
-      "address": "Maasin"
-    },
-    {
       "id": "5",
-      "name": "Roelas",
-      "username": "roel",
-      "age": "23",
-      "address": "Canada"
+      "name": "Paula Marie",
+      "username": "paula",
+      "age": "dfsdf@",
+      "address": "Manila",
+      "email": "paula@gmail.com"
     },
     {
       "id": "6",
       "name": "Jana Marie",
       "username": "jana",
-      "age": "12",
+      "email": "jana@gmail.com",
       "address": "Australia"
     },
     {
       "id": "7",
       "name": "Hanna Mar",
       "username": "hanna",
-      "age": "32",
+      "email": "asdasd@sds",
       "address": "Makati"
-    },
-    {
-      "id": "8",
-      "name": "Watsup1",
-      "username": "watsup",
-      "age": "21",
-      "address": "Cebu"
     },
     {
       "id": "9",
       "name": "Shane",
       "username": "shane",
-      "age": "21",
+      "email": "shane@gmail.com",
       "address": "Macrohon City"
     }
   ]

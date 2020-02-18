@@ -8,7 +8,7 @@ const UserForm = ({ editUser, setEditUser, isOpenModal, setIsOpenModal, User }) 
   };
 
   const UpdateUser = async (id) => {
-    try {
+    try { 
       const res = await fetch("http://localhost:3000/users/" + id, {
         headers: { "Content-Type": "application/json; charset=utf-8",
        },
@@ -46,10 +46,10 @@ const UserForm = ({ editUser, setEditUser, isOpenModal, setIsOpenModal, User }) 
     });
   };
 
-  const handleEditAge = e => {
+  const handleEditEmail = e => {
     setEditUser({
       ...editUser,
-      age: e.target.value
+      email: e.target.value
     });
   };
 
@@ -67,9 +67,9 @@ const UserForm = ({ editUser, setEditUser, isOpenModal, setIsOpenModal, User }) 
           <div className="modal-background"></div>
           <div className="modal-card">
             <header className="modal-card-head">
-              <p className="modal-card-title">User Form</p>
+              <p className="modal-card-title ">User Form</p>
               <button
-                className="delete"
+                className="delete is-hovered"
                 aria-label="close"
                 onClick={handleCloseModal}
               ></button>
@@ -94,7 +94,7 @@ const UserForm = ({ editUser, setEditUser, isOpenModal, setIsOpenModal, User }) 
                 <label className="label">NAME</label>
                 <div className="control has-icons-left has-icons-right">
                   <input
-                    className="input"
+                    className="input "
                     type="text"
                     placeholder="Enter Name "
                     value={editUser.name}
@@ -125,14 +125,14 @@ const UserForm = ({ editUser, setEditUser, isOpenModal, setIsOpenModal, User }) 
               </div>
 
               <div className="field">
-                <label className="label">AGE</label>
+                <label className="label">Email</label>
                 <div className="control has-icons-left has-icons-right">
                   <input
                     className="input"
                     type="text"
                     placeholder="Enter Age"
-                    value={editUser.age}
-                    onChange={handleEditAge}
+                    value={editUser.email}
+                    onChange={handleEditEmail}
                   />
                   <span className="icon is-small is-left">
                     {/* <i class="fas fa-user"></i> */}

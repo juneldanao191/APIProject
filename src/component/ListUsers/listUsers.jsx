@@ -6,11 +6,13 @@ import { PropTypes } from "prop-types";
 import UserForm from "../UserForm/userForm";
 
 const UserLists = ({ fetchUsers, userData }) => {
+
+  
   const [editUser, setEditUser] = useState({
     id: "",
     name: "",
     username: "",
-    age: "",
+    email: "",
     address: ""
   });
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -32,9 +34,9 @@ const UserLists = ({ fetchUsers, userData }) => {
     }
   };
 
-  const handleEditUser = (id, name, username, age, address) => {
+  const handleEditUser = (id, name, username, email, address) => {
     console.log(editUser);
-    setEditUser({ id, name, username, age, address });
+    setEditUser({ id, name, username, email, address });
     setIsOpenModal(true);
   };
 
@@ -47,15 +49,16 @@ const UserLists = ({ fetchUsers, userData }) => {
   ) : (
     <tbody>
       {userData.map(user => {
+        console.log(userData)
         return (
           <tr key={user.id}>
             <td>{user.id}</td>
             <td>{user.name}</td>
             <td>{user.username}</td>
-            <td>{user.age}</td>
+            <td>{user.email}</td>
             <td>{user.address}</td>
 
-            <td className="is-flex">
+            <td className="is-flex " style={{justifyContent: 'center'}}>
               <button
                 className="button is-light "
                 onClick={() => handleDeleteUser(user.id)}
@@ -71,7 +74,7 @@ const UserLists = ({ fetchUsers, userData }) => {
                     user.id,
                     user.name,
                     user.username,
-                    user.age,
+                    user.email,
                     user.address
                   )
                 }

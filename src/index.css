@@ -49,3 +49,8 @@ td {
 .table-row {
   text-align: center;
 }
+
+.delete:hover {
+  background-color: red !important;
+}
+

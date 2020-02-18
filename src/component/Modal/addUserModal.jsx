@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { fetchUsers } from "../redux/action/userActions";
 import { connect } from "react-redux";
 
-const UserModal = ({ Users, userData, sestEditUser, userEdit }) => {
+const UserModal = ({ Users, userData, setEditUser, userEdit }) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [newUser, setNewUser] = useState({
     id: "",
     name: "",
     username: "",
-    age: "",
+    email: "",
     address: ""
   });
 
@@ -39,10 +39,10 @@ const UserModal = ({ Users, userData, sestEditUser, userEdit }) => {
     });
   };
 
-  const handleAddAge = e => {
+  const handleAddEmail = e => {
     setNewUser({
       ...newUser,
-      age: e.target.value
+      email: e.target.value
     });
   };
 
@@ -70,10 +70,10 @@ const UserModal = ({ Users, userData, sestEditUser, userEdit }) => {
   return (
     <div className="container-padding">
       <button
-        className="button is-success is-pulled-right"
+        className="button is-link is-pulled-right is-rounded"
         onClick={handleOpenModal}
       >
-        <span> Add User</span>
+        <span> + Add User</span>
       </button>
 
       {isOpenModal ? (
@@ -141,14 +141,14 @@ const UserModal = ({ Users, userData, sestEditUser, userEdit }) => {
               </div>
 
               <div className="field">
-                <label className="label">AGE</label>
+                <label className="label">Email</label>
                 <div className="control has-icons-left has-icons-right">
                   <input
                     className="input"
                     type="text"
-                    placeholder="Enter Age"
-                    value={newUser.age}
-                    onChange={handleAddAge}
+                    placeholder="Enter Email"
+                    value={newUser.email}
+                    onChange={handleAddEmail}
                   />
                   <span className="icon is-small is-left">
                     {/* <i className="fas fa-user"></i> */}

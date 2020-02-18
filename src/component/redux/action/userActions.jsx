@@ -20,11 +20,16 @@ export const fetchingUserFailure = (error) => ({
 });
 
 
-export const fetchUsers = () => {
+export const fetchUsers = (search) => {
     return async function (dispatch){
         dispatch(fetchingUserRequest());
         try {
-            const response = await fetch('http://localhost:3000/users');
+            let url = 'http://localhost:3000/users';
+            if(search) {
+                // url = url + 'q=' + search
+                url += `?q=${search}`;
+            }
+            const response = await fetch(url);
             const fetchData = await response.json();
             dispatch(fetchingUserSuccess(fetchData));
             console.log(fetchData)
