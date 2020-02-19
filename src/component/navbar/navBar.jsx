@@ -7,8 +7,8 @@ const NavBar = () => {
   const handleClickHome = () => {
     history.push("/");
   };
-  const handleClickUpload = () => {
-    history.push("/user");
+  const handleClickUsers= () => {
+    history.push("/users");
   };
   return (
     <nav
@@ -53,7 +53,7 @@ const NavBar = () => {
               <p className="control">
                 <button
                   className="button is-link is-rounded"
-                  onClick={handleClickUpload}
+                  onClick={handleClickUsers}
                 >
                   <span className="icon">
                     <i className="fas fa-users"></i>
@@ -63,23 +63,6 @@ const NavBar = () => {
               </p>
             </div>
           </div>
-        </div>
-      </div>
-
-      <div className="navbar-end">
-        <div className="navbar-item">
-          {/* <div className="field">
-            <div className="control has-icons-left has-icons-right">
-              <input
-                className="input is-rounded"
-                type="text"
-                placeholder="Search ..."
-              />
-              <span className="icon is-small is-left">
-                <i className="fas fa-search"></i>
-              </span>
-            </div>
-          </div> */}
         </div>
       </div>
     </nav>

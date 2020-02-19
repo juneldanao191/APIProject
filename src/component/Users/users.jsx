@@ -1,74 +1,45 @@
-import React, { useState } from "react";
+import React from "react";
 import "bulma/css/bulma.css";
 import UserLists from "../ListUsers/listUsers";
 import { fetchUsers } from "../redux/action/userActions";
 import AddUserModal from "../Modal/addUserModal";
 import { connect } from "react-redux";
+import SearchUsers from "../Search/search";
 
-
-const User = ({fetchUsers,userData}) => {
-  // const [users, setUsers] = useState([]);
-  // const [filterUsers, setFilterUsers] = useState([]);
-  const [inputValue, setInputValue] = useState("");  
-
-  const handleChangeUser = e => {
-    setInputValue(e.target.value);
-    fetchUsers(e.target.value);
-  };
-
+const UsersComponent = ({ Users }) => {
   return (
     <div className="container">
-      <h1 className="title has-text-centered">Users</h1>
+      <div className="control ">
+        <span className="users-icon">
+          <i className="fas fa-users fa-5x"></i>
+        </span>
+        <h1 className="title has-text-centered ">Users</h1>
+      </div>
 
       <AddUserModal />
-
-      <div className="field" style={{ width: "20%" }}>
-        <div className="control has-icons-left has-icons-right">
-          <input
-            className="input is-rounded"
-            type="text"
-            value={inputValue}
-            onChange={handleChangeUser}
-            placeholder="Search ..."
-          />
-          <span className="icon is-small is-left">
-            <i className="fas fa-search"></i>
-          </span>
-        </div>
-      </div>
+      <SearchUsers />
       <table className="table is-bordered is-fullwidth is-striped is-hoverable">
         <thead>
           <tr className="table-row-hover-background-color is-selected ">
-            <th className="id has-text-centered	">ID</th>
+            <th className="id has-text-centered	">Id</th>
             <th className="name has-text-centered	">Name</th>
             <th className="username has-text-centered	">User Name</th>
             <th className="email has-text-centered	">Email</th>
             <th className="address has-text-centered	">Address</th>
-            <th className="action is-flex has-centered" style={{justifyContent:"center"}}>Action</th>
+            <th className="action has-text-centered ">Action</th>
           </tr>
         </thead>
-        <UserLists
-          // users={users}
-          // setUsers={setUsers}
-          // filterUsers={filterUsers}
-          // setFilterUsers={setFilterUsers}
-          fetchUsers={fetchUsers}
-        />
+
+        <UserLists Users={Users} />
       </table>
     </div>
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    userData: state.users
-  };
-};
-
 const mapDispatchToProps = dispatch => {
   return {
-    fetchUsers: (search) => dispatch(fetchUsers(search))
+    Users: search => dispatch(fetchUsers(search))
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(User);
+export default connect(undefined, mapDispatchToProps)(UsersComponent);

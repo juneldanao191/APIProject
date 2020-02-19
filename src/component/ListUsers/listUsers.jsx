@@ -2,12 +2,9 @@ import React, { useEffect, useState } from "react";
 
 import { fetchUsers } from "../redux/action/userActions";
 import { connect } from "react-redux";
-import { PropTypes } from "prop-types";
-import UserForm from "../UserForm/userForm";
+import EditUserFormModal from "../Modal/editUserModal";
 
-const UserLists = ({ fetchUsers, userData }) => {
-
-  
+const UsersList = ({ fetchUsers, userData }) => {
   const [editUser, setEditUser] = useState({
     id: "",
     name: "",
@@ -19,7 +16,7 @@ const UserLists = ({ fetchUsers, userData }) => {
 
   useEffect(() => {
     fetchUsers();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleDeleteUser = async id => {
@@ -34,14 +31,9 @@ const UserLists = ({ fetchUsers, userData }) => {
     }
   };
 
-  const handleEditUser = (id, name, username, email, address) => {
-    console.log(editUser);
+  const handleEditUser = ({ id, name, username, email, address }) => {
     setEditUser({ id, name, username, email, address });
     setIsOpenModal(true);
-  };
-
-  UserLists.propTypes = {
-    fetchUsers: PropTypes.func.isRequired
   };
 
   return userData.isLoading ? (
@@ -49,7 +41,6 @@ const UserLists = ({ fetchUsers, userData }) => {
   ) : (
     <tbody>
       {userData.map(user => {
-        console.log(userData)
         return (
           <tr key={user.id}>
             <td>{user.id}</td>
@@ -57,8 +48,7 @@ const UserLists = ({ fetchUsers, userData }) => {
             <td>{user.username}</td>
             <td>{user.email}</td>
             <td>{user.address}</td>
-
-            <td className="is-flex " style={{justifyContent: 'center'}}>
+            <td className="is-flex " style={{ justifyContent: "center" }}>
               <button
                 className="button is-light "
                 onClick={() => handleDeleteUser(user.id)}
@@ -69,15 +59,7 @@ const UserLists = ({ fetchUsers, userData }) => {
               </button>
               <button
                 className="button is-light"
-                onClick={() =>
-                  handleEditUser(
-                    user.id,
-                    user.name,
-                    user.username,
-                    user.email,
-                    user.address
-                  )
-                }
+                onClick={() => handleEditUser(user)}
               >
                 <span className="icon">
                   <i className="fas fa-edit" aria-hidden="true"></i>
@@ -87,7 +69,7 @@ const UserLists = ({ fetchUsers, userData }) => {
           </tr>
         );
       })}
-      <UserForm
+      <EditUserFormModal
         editUser={editUser}
         setEditUser={setEditUser}
         isOpenModal={isOpenModal}
@@ -109,4 +91,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserLists);
+export default connect(mapStateToProps, mapDispatchToProps)(UsersList);
