@@ -14,6 +14,9 @@ const UsersList = ({ fetchUsers, userData }) => {
   });
   const [isOpenModal, setIsOpenModal] = useState(false);
 
+
+  
+
   useEffect(() => {
     fetchUsers();
     // eslint-disable-next-line react-hooks/exhaustive-deps

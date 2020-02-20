@@ -9,8 +9,8 @@ const EditUserForm = ({
   setIsOpenModal,
   User
 }) => {
-  const handleCloseModal = () => {
-    setIsOpenModal(false);
+  const toggleModal = () => {
+    setIsOpenModal(!isOpenModal);
   };
 
   const UpdateUser = async id => {
@@ -30,33 +30,15 @@ const EditUserForm = ({
     }
   };
 
-  const handleEditName = e => {
-    setEditUser({
-      ...editUser,
-      name: e.target.value
-    });
-  };
 
-  const handleEditUsername = e => {
+  const handleChange = (e) => {
     setEditUser({
       ...editUser,
-      username: e.target.value
-    });
-  };
+      [e.target.id]: e.target.value
+    })
+  }
 
-  const handleEditEmail = e => {
-    setEditUser({
-      ...editUser,
-      email: e.target.value
-    });
-  };
-
-  const handleEditAddress = e => {
-    setEditUser({
-      ...editUser,
-      address: e.target.value
-    });
-  };
+ 
   return (
     <tr>
       <td>
@@ -69,7 +51,7 @@ const EditUserForm = ({
                 <button
                   className="delete is-hovered"
                   aria-label="close"
-                  onClick={handleCloseModal}
+                  onClick={toggleModal}
                 ></button>
               </header>
               <div>
@@ -86,7 +68,7 @@ const EditUserForm = ({
                       type="text"
                       placeholder="Enter Name "
                       value={editUser.name}
-                      onChange={handleEditName}
+                      onChange={handleChange}
                       id="name"
                     />
                    <span className="icon is-small is-left">
@@ -104,7 +86,7 @@ const EditUserForm = ({
                       placeholder="Enter Username"
                       value={editUser.username}
                       id="username"
-                      onChange={handleEditUsername}
+                      onChange={handleChange}
                     />
                    <span className="icon is-small is-left">
                   <i className="fas fa-user"></i>
@@ -121,7 +103,7 @@ const EditUserForm = ({
                       placeholder="Enter Email"
                       value={editUser.email}
                       id="email"
-                      onChange={handleEditEmail}
+                      onChange={handleChange}
                     />
                     <span className="icon is-small is-left">
                     <i className="fas fa-at"></i>
@@ -138,7 +120,7 @@ const EditUserForm = ({
                       placeholder="Enter Address"
                       value={editUser.address}
                       id="address"
-                      onChange={handleEditAddress}
+                      onChange={handleChange}
                     />
                     <span className="icon is-small is-left">
                     <i className="fas fa-home"></i>
@@ -153,7 +135,7 @@ const EditUserForm = ({
                 >
                   SAVE
                 </button>
-                <button className="button" onClick={handleCloseModal}>
+                <button className="button" onClick={toggleModal}>
                   Cancel
                 </button>
               </footer>

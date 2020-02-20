@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 const SearchUser = ({ Users }) => {
   const [inputValue, setInputValue] = useState("");
 
-  const handleChangeUser = e => {
+  const handleChange = e => {
     setInputValue(e.target.value);
     Users(e.target.value);
   };
@@ -16,7 +16,7 @@ const SearchUser = ({ Users }) => {
           className="input is-rounded"
           type="text"
           value={inputValue}
-          onChange={handleChangeUser}
+          onChange={handleChange}
           placeholder="Search ..."
         />
         <span className="icon is-small is-left">

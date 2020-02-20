@@ -5,10 +5,11 @@ import { fetchUsers } from "../redux/action/userActions";
 import AddUserModal from "../Modal/addUserModal";
 import { connect } from "react-redux";
 import SearchUsers from "../Search/search";
-
+import NavBar from "../Navbar/navBar";
 const UsersComponent = ({ Users }) => {
   return (
     <div className="container">
+      <NavBar />
       <div className="control ">
         <span className="users-icon">
           <i className="fas fa-users fa-5x"></i>

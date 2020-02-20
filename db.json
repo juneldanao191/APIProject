@@ -1,32 +1,18 @@
 {
   "users": [
     {
-      "id": 1582080747960,
-      "name": "Junel Danao",
-      "username": "jhonez",
-      "email": "jhonezdanao@gmail.com",
-      "address": "Mabini Macrohon Southern Leyte"
-    },
-    {
-      "id": 1582081162192,
-      "name": "James Suarez",
-      "username": "jamesuarez",
-      "email": "james@gmail.com",
-      "address": "basak"
-    },
-    {
-      "name": "Jana Mae Lopez",
-      "username": "jang",
-      "email": "jana@gmail.com",
-      "address": "Macrohon",
-      "id": 1582081162193
-    },
-    {
-      "name": "Raffy Abedijos",
+      "id": 1582081162194,
+      "name": "Raffy Abedejos",
       "username": "raffja",
       "email": "rffja@gmail.com",
-      "address": "Dongon Maasin City",
-      "id": 1582081162194
+      "address": "Dongon Maasin City"
+    },
+    {
+      "name": "Junel C. Danao",
+      "username": "jhonez",
+      "email": "jhonezdanao@gmail.com",
+      "address": "Mabini Macrohon Southern Leyte",
+      "id": 1582081162198
     }
   ]
 }

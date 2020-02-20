@@ -1,8 +1,12 @@
 import React from "react";
+import NavBar from '../Navbar/navBar'
 
 const HomePage = () => {
+
   return (
     <div className="container is-widescreen">
+    <NavBar />
+
       <div className="header-title has-text-centered">
         <h1>Welcome to MixCLoud</h1>
       </div>

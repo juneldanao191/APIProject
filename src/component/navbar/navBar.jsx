@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 const NavBar = () => {
@@ -7,9 +7,14 @@ const NavBar = () => {
   const handleClickHome = () => {
     history.push("/");
   };
-  const handleClickUsers= () => {
+  const handleClickUsers = () => {
     history.push("/users");
   };
+
+  const handleClickLogOut = () => {
+    history.push("/");
+  };
+
   return (
     <nav
       className="navbar is-fixed-top"
@@ -64,8 +69,22 @@ const NavBar = () => {
             </div>
           </div>
         </div>
+        <div class="navbar-end">
+    
+          <div class="navbar-item">
+            <div class="buttons">
+            
+              <button class="button is-light" onClick={handleClickLogOut}>
+                Log Out
+              </button>
+              
+            </div>
+          </div>
+        </div>
       </div>
+     
     </nav>
+    
   );
 };
 

@@ -9,7 +9,7 @@ import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import userReducer from "./component/redux/reducer/userReducer";
-
+import LogIn from "./component/Log-in/logInForm";
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 
 const store = createStoreWithMiddleware(userReducer);
@@ -19,13 +19,14 @@ function App() {
     <Provider store={store}>
       <div className="App">
         <Router>
-          <NavBar />
+
           <Switch>
-            <Route exact path="/" component={HomePage}></Route>
+            <Route exact path="/" component={LogIn}></Route>
+            <Route exact path="/home" component={HomePage}></Route>
             <Route exact path="/users" component={Users}></Route>
+            <Footer />
           </Switch>
         </Router>
-        <Footer />
       </div>
     </Provider>
   );
